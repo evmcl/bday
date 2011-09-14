@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Command Line Options</title>
+</head>
+<body>
+<!--
+Copyright 2009 Evan McLean
+http://evanmclean.com/
+
+This file is part of BDay.
+
+BDay is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+BDay is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+BDay.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--  NOTE: HTML purposely using old style formatting tags such as <font>
+      instead of using CSS because of the limited HTML support in the
+      wxWidget HTML window control.
+-->
+
+<a name="contents"></a>
+<h2><font color="#104A91">Contents</font></h2>
+
+<p><a href="index.html">BDay</a></p>
+<p><a href="advanced.html">Advanced Event Formats</a></p>
+<p><a href="locations.html">Events File Locations</a></p>
+<p><a href="linux.html">Running BDay Automatically Under Linux</a></p>
+<p><a href="cmdline.html">Command Line Options</a></p>
+<blockquote>
+  <a href="cmdline.html#quick">Quick</a><br>
+  <a href="cmdline.html#today">Today</a><br>
+  <a href="cmdline.html#run-from">Run From</a>
+</blockquote>
+<p><a href="license.html">License</a></p>
+
+<a name="command-line-options"></a>
+<h1><font color="#104A91">Command Line Options</font></h1>
+
+<p>With the exception of the &ldquo;<code>--quick</code>&rdquo; option, the
+command line options are mainly used for testing purposes.</p>
+
+<p>The command line options are:</p>
+
+<pre>Usage: bday [-q] [-t &lt;date&gt;] [-r &lt;date&gt;]
+  -q, --quick           Exit immediately if there are no current events.
+  -t, --today=&lt;date&gt;    Run as if the specified date is today.
+  -r, --run-from=&lt;date&gt; Capture all events since the specified date.</pre>
+
+<a name="quick"></a>
+<h2><font color="#104A91">Quick</font></h2>
+
+<p>BDay can be run in &ldquo;quick&rdquo; mode in one of two ways:</p>
+
+<ol>
+  <li>Running with the &ldquo;<code>-q</code>&rdquo; or
+    &ldquo;<code>--quick</code>&rdquo; command-line parameter.</li>
+  <li>Running by calling &ldquo;<code>bdayquick</code>&rdquo;, which is a
+    symbolic link to the <code>bday</code> main program (Linux only.)</li>
+</ol>
+
+<p>In quick mode, if there are no events to be displayed then BDay will exit
+immediately.</p>
+
+<p>You typically want to run this when the user logs into the computer.  See <a
+href="index.html#running-bday-on-start-up-log-in" title="Running BDay on Start
+Up/Log In">Running BDay on Start Up/Log In</a> for running under Microsoft
+Windows, or <a href="linux.html#running-bday-automatically-under-linux"
+title="Running BDay Automatically Under Linux">Running BDay Automatically Under
+Linux</a> for Linux users.</p>
+
+<a name="today"></a>
+<h2><font color="#104A91">Today</font></h2>
+
+<p>You can specify a date in &ldquo;<code>YYYY-MM-DD</code>&rdquo; format and
+BDay will show events as if it is today's date.</p>
+
+<a name="run-from"></a>
+<h2><font color="#104A91">Run From</font></h2>
+
+<p>Normally BDay remembers what day it was last run, so if it is not run for a
+few days you'll get events like
+&ldquo;<code>John's&nbsp;birthday&nbsp;yesterday</code>&rdquo; the next time
+BDay runs, if appropriate.</p>
+
+<p>You can specify a date in &ldquo;<code>YYYY-MM-DD</code>&rdquo; format and
+BDay will behave as if it hasn't been run since that date.</p>
+
+<p><font color="#104A91"><strong>Coda</strong></font></p>
+
+<p>The <code>Today</code> and <code>Run From</code> command line options are
+really only useful for testing BDay during development, and not meant for
+common use.  They are documented here for the sake of completeness.</p>
+
+<p><a href="cmdline.html#contents" title="Contents">Contents</a></p>
+
+</body>
+</html>

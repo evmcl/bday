@@ -1,0 +1,5 @@
+If you have downloaded the zip file instead of the self-installing executable,
+just unzip to the directory of your choice and add a short-cut to bday.exe to
+your Start menu.
+
+To uninstall, just delete the files and/or the directory you had unzipped.

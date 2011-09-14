@@ -1,0 +1,9 @@
+Debug
+dist
+linux/bday
+*.o
+*.d
+*.res
+msys/*.exe
+.hg
+.hgignore

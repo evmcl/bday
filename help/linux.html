@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Running BDay Automatically Under Linux</title>
+</head>
+<body>
+<!--
+Copyright 2009 Evan McLean
+http://evanmclean.com/
+
+This file is part of BDay.
+
+BDay is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+BDay is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+BDay.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--  NOTE: HTML purposely using old style formatting tags such as <font>
+      instead of using CSS because of the limited HTML support in the
+      wxWidget HTML window control.
+-->
+
+<a name="contents"></a>
+<h2><font color="#104A91">Contents</font></h2>
+
+<p><a href="index.html">BDay</a></p>
+<p><a href="advanced.html">Advanced Event Formats</a></p>
+<p><a href="locations.html">Events File Locations</a></p>
+<p><a href="linux.html#running-bday-automatically-under-linux">Running BDay Automatically Under Linux</a></p>
+<p><a href="cmdline.html">Command Line Options</a></p>
+<p><a href="license.html">License</a></p>
+
+<a name="running-bday-automatically-under-linux"></a>
+<h1><font color="#104A91">Running BDay Automatically Under Linux</font></h1>
+
+<p>BDay can be run in &ldquo;quick&rdquo; mode in one of two ways:</p>
+
+<ol>
+  <li>Running with the &ldquo;<code>-q</code>&rdquo; or
+    &ldquo;<code>--quick</code>&rdquo; command-line parameter.</li>
+  <li>Running by calling &ldquo;<code>bdayquick</code>&rdquo;, which is a
+    symbolic link to the <code>bday</code> main program.</li>
+</ol>
+
+<p>In quick mode, if there are no events to be displayed then BDay will exit
+immediately.</p>
+
+<p>You typically want to run this when the user logs into the computer.
+Unfortunately, this is dependant on which window management system you are
+using.  For instance, for KDE you could put a symbolic link into the
+&ldquo;<tt>~/.kde/Autostart</tt>&rdquo; folder with a command such as:</p>
+
+<blockquote><pre>ln -s /usr/bin/bdayquick ~/.kde/Autostart</pre></blockquote>
+
+<p>(Depending on the distribution of Linux and the version of KDE being used,
+the relevant folder may be &ldquo;<tt>~/.kde4/Autostart</tt>&rdquo;.)</p>
+
+<p>For Gnome, you must open the System Preferences or Control Centre, select
+Sessions and then add an entry in the Start Programs tab.</p>
+
+<p>Another option is to run BDay at a scheduled time using <tt>cron</tt>.  To
+edit your <tt>cron</tt> schedule, enter the following command at your
+terminal/console prompt:</p>
+
+<blockquote><pre>crontab -e</pre></blockquote>
+
+<p>The following line would configure <tt>cron</tt> to run BDay at 5AM every
+morning, so if there are events to be displayed, they will be there waiting for
+you when you arrive at your computer in the morning:</p>
+
+<blockquote><pre>0 5 * * * bdayquick</pre></blockquote>
+
+<p><a href="linux.html#contents" title="Contents">Contents</a></p>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Events File Locations</title>
+</head>
+<body>
+<!--
+Copyright 2009 Evan McLean
+http://evanmclean.com/
+
+This file is part of BDay.
+
+BDay is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+BDay is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+BDay.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--  NOTE: HTML purposely using old style formatting tags such as <font>
+      instead of using CSS because of the limited HTML support in the
+      wxWidget HTML window control.
+-->
+
+<a name="contents"></a>
+<h2><font color="#104A91">Contents</font></h2>
+
+<p><a href="index.html">BDay</a></p>
+<p><a href="advanced.html">Advanced Event Formats</a></p>
+<p><a href="locations.html#events-file-locations">Events File Locations</a></p>
+<blockquote>
+  <a href="locations.html#microsoft-windows">Microsoft Windows</a><br>
+  <a href="locations.html#linux">Linux</a><br>
+  <a href="locations.html#including-other-event-files">Including Other Event Files</a>
+</blockquote>
+<p><a href="linux.html">Running BDay Automatically Under Linux</a></p>
+<p><a href="cmdline.html">Command Line Options</a></p>
+<p><a href="license.html">License</a></p>
+
+<a name="events-file-locations"></a>
+<h1><font color="#104A91">Events File Locations</font></h1>
+
+<p>The location of events files depends on the operating system.</p>
+
+<a name="microsoft-windows"></a>
+<h2><font color="#104A91">Microsoft Windows</font></h2>
+
+<p>The user events file is stored at:</p>
+
+<blockquote><tt>C:\Documents&nbsp;and&nbsp;Settings\<em>user</em>\Application&nbsp;Data\bday.txt</tt></blockquote>
+
+<p>Where &ldquo;<tt><em>user</em></tt>&rdquo; is the user's log in ID.</p>
+
+<p>The system events file is stored at:</p>
+
+<blockquote><tt>C:\Documents&nbsp;and&nbsp;Settings\All&nbsp;Users\Application&nbsp;Data\bday.txt</tt></blockquote>
+
+<p>A third events file is also available in Microsoft Windows, the application
+events file.  It is stored in the same folder as the <tt>bday.exe</tt> program
+(usually &ldquo;<tt>C:\Program&nbsp;Files\bday</tt>&rdquo;.)</p>
+
+<a name="linux"></a>
+<h2><font color="#104A91">Linux</font></h2>
+
+<p>The user events file is stored the user's home directory:</p>
+
+<blockquote><tt>~/.bdayrc</tt></blockquote>
+
+<p>The system events file is stored at:</p>
+
+<blockquote><tt>/etc/bdayrc</tt></blockquote>
+
+<p>Note that BDay also creates the directory &ldquo;<tt>~/.bday</tt>&rdquo; to
+hold certain application properties.</p>
+
+<a name="including-other-event-files"></a>
+<h2><font color="#104A91">Including Other Event Files</font></h2>
+
+<p>You can include another events file by entering the following line in one of
+the above include files:</p>
+
+<pre><code>include <em>filename</em></code></pre>
+
+<p>Where &ldquo;<code><em>filename</em></code>&rdquo; is the full path and name
+of the file to be included.</p>
+
+<p><a href="locations.html#contents" title="Contents">Contents</a></p>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+There are several ways of manually installing BDay.  The simplest is to copy
+the "bday" executable into your existing path and copy the help directory to
+one of the following locations:
+
+  /usr/share/bday/help
+  /usr/local/share/bday/help
+
+Or into the same folder as the "bday" executable.
+
+It would also be good to make a symbolic link to the bday executable for
+running in quick mode.  If you had put bday in /usr/local/bin, then the
+following command would set up the symbolical link:
+
+  ln -s /usr/local/bin/bday /usr/local/bin/bdayquick
+
+Another common install pattern is to unzip the binary distribution into either
+/opt/bday or /usr/local/bday and then add the relevant symbolic links.  For
+example:
+
+  ln -s /opt/bday/bday /usr/local/bin/bday
+  ln -s /opt/bday/bday /usr/local/bin/bdayquick
+
+The bday.desktop and bday.png files can be used to create a menu entry for
+BDay.  Copy the bday.png image file to where you store icon files (typically
+/usr/share/icons or /usr/local/share/icons) and the bday.desktop to where you
+store desktop short-cuts (typically /usr/share/applications or
+/usr/local/share/applications.)  Edit bday.desktop and change the paths on the
+Exec and Icon lines to the paths where you've installed everything.
+
+If you do not have root access, you can still install bday in your personal
+$HOME/bin folder, and put bday.desktop in $HOME/.local/share/applications.
+
+After installing the desktop file you should be able to find BDay under
+Utilities/Desktop.
+
+There is also an RPM package available for automated install.

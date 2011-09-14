@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>BDay</title>
+</head>
+<body>
+<!--
+Copyright 2009 Evan McLean
+http://evanmclean.com/
+
+This file is part of BDay.
+
+BDay is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+BDay is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+BDay.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--  NOTE: HTML purposely using old style formatting tags such as <font>
+      instead of using CSS because of the limited HTML support in the
+      wxWidget HTML window control.
+-->
+
+<a name="bday"></a>
+<h1><font color="#104A91">BDay</font></h1>
+
+<p><em>The super simple birthday and anniversary reminder program.</em></p>
+
+<p align="center"><img src="images/main_window.png" width="348" height="198" title="BDay Main Window" alt="BDay Main Window"></p>
+
+<p>BDay is a simple program to help you track birthdays and anniversaries.  It
+runs when you start or log in to your computer, displays any events that are
+coming up, and then exits when you click OK.  It does not hang around in the
+system tray or as a background process taking up your computer's resources.  If
+there are no events to be displayed, then you wont even see BDay run.</p>
+
+<a name="contents"></a>
+<h2><font color="#104A91">Contents</font></h2>
+
+<p><a href="index.html#bday">BDay</a></p>
+<blockquote>
+  <p><a href="index.html#event-files">Event Files</a></p>
+  <blockquote>
+    <a href="index.html#lead-time">Lead Time</a><br>
+    <a href="index.html#a-note-about-february-29th">A Note About February 29<sup>th</sup></a><br>
+    <a href="index.html#a-day-of-the-week">A Day of the Week</a>
+  </blockquote>
+  <p><a href="index.html#editing-event-files">Editing Event Files</a><br>
+  <a href="index.html#running-bday-on-start-up-log-in">Running BDay on Start Up/Log In</a></p>
+</blockquote>
+<p><a href="advanced.html">Advanced Event Formats</a></p>
+<p><a href="locations.html">Events File Locations</a></p>
+<p><a href="linux.html">Running BDay Automatically Under Linux</a></p>
+<p><a href="cmdline.html">Command Line Options</a></p>
+<p><a href="license.html">License</a></p>
+
+<a name="event-files"></a>
+<h2><font color="#104A91">Event Files</font></h2>
+
+<p>Events are stored in a simple text file.  Each line in the text file lists
+one event which may be displayed.  Here is an example showing a couple of
+events:</p>
+
+<blockquote><pre>1 Apr 1980 John's birthday
+25 Apr ANZAC Day</pre></blockquote>
+
+<p>So a simple event is defined by the day, then the month (3 letters), the
+year and the event.  The year is optional, and if defined then the number of
+years is displayed with the event.  (e.g., John will be 29 on his birthday in
+2009, so the number &ldquo;29&rdquo; is displayed in parenthesis after the
+event.)</p>
+
+<a name="lead-time"></a>
+<h3><font color="#104A91">Lead Time</font></h3>
+
+<p>By default, events are displayed from five days before they occur.  You can
+change this for a specific event by specifying the number of days warning after
+the year.  For example, if you had
+&ldquo;<code>1&nbsp;Apr&nbsp;1980&nbsp;10&nbsp;John's&nbsp;birthday</code>&rdquo;
+then on the 25th of March you would see:</p>
+
+<p align="center"><img src="images/main_window_lead_time.png" width="348" height="198" title="Longer lead times" alt="John's birthday (29) in 7 days (Wed 01 Apr 2009)"></p>
+
+<p>If you want to use a default lead time other than five days, you can change
+it by putting the following in the event file:</p>
+
+<blockquote><pre>lead time <em>n</em></pre></blockquote>
+
+<p>Where &ldquo;<code><em>n</em></code>&rdquo; is the number of days lead time
+you want by default.  All events specified after this line will have the new
+lead time by default.</p>
+
+<a name="a-note-about-february-29th"></a>
+<h3><font color="#104A91">A Note About February 29<sup>th</sup></font></h3>
+
+<p>If you put an event such as
+&ldquo;<code>29&nbsp;Feb&nbsp;Fred&nbsp;&amp;&nbsp;Wilma's&nbsp;Anniversary</code>&rdquo;
+it will only show up every leap year.  Instead, put in
+&ldquo;<code>-1&nbsp;Feb&nbsp;Fred&nbsp;&amp;&nbsp;Wilma's&nbsp;Anniversary</code>&rdquo;
+to display on the last day of February, every year.</p>
+
+<p>See <a href="advanced.html" title="Advanced Event Formats">Advanced Event
+Formats</a> for more details on advanced event formats.</p>
+
+<a name="a-day-of-the-week"></a>
+<h3><font color="#104A91">A Day of the Week</font></h3>
+
+<p>If you want an event on, say the first Sunday of a month, then you can
+specify an event like this:</p>
+
+<blockquote><pre>Sun Sep Fathers' Day</pre></blockquote>
+
+<p>You specify the day of the week, the month, the year if you want it, and the
+event.</p>
+
+<p>If you wanted an event on the second Sunday of the month instead, you would
+specify it like so:</p>
+
+<blockquote><pre>Sun+2 May Mothers' Day</pre></blockquote>
+
+<p>Again, you specify the day of the week, but this time you include a plus two
+to indicate you wanted the second Sunday, not the first.  It is important that
+there be no spaces around the plus sign.  (Note that
+&ldquo;<code>Sun</code>&rdquo; and &ldquo;<code>Sun+1</code>&rdquo; are
+equivalent.)</p>
+
+<p>If instead, you wanted an event on the last Friday of the month, you could
+specify it like so:</p>
+
+<blockquote><pre>Fri-1 Jan-Dec Balance accounts.</pre></blockquote>
+
+<p>So a negative number indicates the last of the specified day in the month.
+Likewise the second last Friday would be &ldquo;<code>Fri-2</code>&rdquo;.</p>
+
+<p>Note that we also specified a range of months for this event, so the event
+will occur on the last Friday within the specified range (every month in this
+case).  See <a href="advanced.html" title="Advanced Event Formats">Advanced
+Event Formats</a> for more details on advanced event formats.</p>
+
+<a name="editing-event-files"></a>
+<h2><font color="#104A91">Editing Event Files</font></h2>
+
+<p>There are two event files available for editing:</p>
+
+<blockquote><dl>
+  <dt>User Events File</dt>
+  <dd>Event file for each user, only seen by each user.</dd>
+
+  <dt><br>System Events File</dt>
+  <dd>A single event file shared by all users.</dd>
+</dl></blockquote>
+
+<p>You can edit these files from the <tt>Edit</tt> menu.</p>
+
+<p align="center"><img src="images/main_window_editing_events.png" width="347" height="197" alt="Edit Menu"></p>
+
+<p>See <a href="locations.html" title="Events File Locations">Events File
+Locations</a> for the locations in the file system where these files are
+stored.</p>
+
+<a name="running-bday-on-start-up-log-in"></a>
+<h2><font color="#104A91">Running BDay on Start Up/Log In</font></h2>
+
+<p><em>NOTE:</em> This is for Microsoft Windows only.  For Linux, see <a
+href="linux.html" title="Running BDay Automatically Under Linux">Running BDay
+Automatically Under Linux</a>.</p>
+
+<p>Under the <tt>File</tt> menu you will see a menu item labelled,
+&ldquo;<tt>Run on Startup</tt>&rdquo;.  Selecting this item will toggle whether
+BDay will run when the computer starts or the current user logs in.</p>
+
+<p align="center"><img src="images/main_window_run_on_startup.png" width="346" height="196" alt="File Menu"></p>
+
+<p><a href="index.html#contents" title="Contents">Contents</a></p>
+
+</body>
+</html>

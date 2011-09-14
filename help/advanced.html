@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Advanced Event Formats</title>
+</head>
+<body>
+<!--
+Copyright 2009 Evan McLean
+http://evanmclean.com/
+
+This file is part of BDay.
+
+BDay is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+BDay is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+BDay.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--  NOTE: HTML purposely using old style formatting tags such as <font>
+      instead of using CSS because of the limited HTML support in the
+      wxWidget HTML window control.
+-->
+
+<a name="contents"></a>
+<h2><font color="#104A91">Contents</font></h2>
+
+<p><a href="index.html">BDay</a></p>
+<p><a href="advanced.html#advanced-event-formats">Advanced Event Formats</a></p>
+<blockquote>
+  <a href="advanced.html#day-of-the-month">Day of the Month</a><br>
+  <a href="advanced.html#day-of-the-week">Day of the Week</a><br>
+  <a href="advanced.html#month">Month</a><br>
+  <a href="advanced.html#year">Year</a><br>
+  <a href="advanced.html#lead-time">Lead Time</a><br>
+  <a href="advanced.html#event-text">Event Text</a>
+</blockquote>
+<p><a href="locations.html">Events File Locations</a></p>
+<p><a href="linux.html">Running BDay Automatically Under Linux</a></p>
+<p><a href="cmdline.html">Command Line Options</a></p>
+<p><a href="license.html">License</a></p>
+
+<a name="advanced-event-formats"></a>
+<h1><font color="#104A91">Advanced Event Formats</font></h1>
+
+<p>Each event is on a single line, comprised of the following components:</p>
+
+<blockquote><pre>day mon [year] [lead_time] text</pre></blockquote>
+
+<p>The first component is either the day of the month or the day of the week,
+followed by the month.  This is followed optionally by a year, and an optional
+lead time, and finally by the text of the event.</p>
+
+<a name="day-of-the-month"></a>
+<h2><font color="#104A91">Day of the Month</font></h2>
+
+<p>For the day of the month, it can be either:</p>
+
+<ul>
+  <li>A positive number between 1 and the number of days in the month,
+    indicating the day of the month on which the event occurs.</li>
+</ul>
+<ul>
+  <li>A negative number to count back from the end of the month, <tt>-1</tt>
+    being the last day of the month, <tt>-2</tt> the second last day and so
+    on.</li>
+</ul>
+
+<a name="day-of-the-week"></a>
+<h2><font color="#104A91">Day of the Week</font></h2>
+
+<p>For the day of the week, it will be one of <tt>Mon</tt>, <tt>Tue</tt>,
+<tt>Wed</tt>, <tt>Thu</tt>, <tt>Fri</tt>, <tt>Sat</tt> or <tt>Sun</tt> to
+indicate the day of the week, followed by either a positive or negative number
+to indicate which week in the month in which the event occurs.</p>
+
+<p>Examples:</p>
+
+<blockquote>
+  <p>The first Monday of the month.</p>
+    <blockquote><tt>Mon</tt></blockquote>
+
+  <p>Also first Monday of the month.</p>
+    <blockquote><tt>Mon+1</tt></blockquote>
+
+  <p>The second Monday of the month.</p>
+    <blockquote><tt>Mon+2</tt></blockquote>
+
+  <p>The last Friday of the month.</p>
+    <blockquote><tt>Fri-1</tt></blockquote>
+
+  <p>The second last Friday of the month.</p>
+    <blockquote><tt>Fri+2</tt></blockquote>
+</blockquote>
+
+<p>It is important that there be no spaces between the day name and the number
+following it.</p>
+
+<p>If you specify the fifth day of the week in a month, such as the fifth
+Monday of the month, and the month only contains four Mondays in the current
+year, the event will not be displayed for that year.</p>
+
+<a name="month"></a>
+<h2><font color="#104A91">Month</font></h2>
+
+<p>The month is one of <tt>Jan</tt>, <tt>Feb</tt>, <tt>Mar</tt>, <tt>Apr</tt>,
+<tt>May</tt>, <tt>Jun</tt>, <tt>Jul</tt>, <tt>Aug</tt>, <tt>Sep</tt>,
+<tt>Oct</tt>, <tt>Nov</tt> or <tt>Dec</tt>, indicating which calendar month the
+event occurs.</p>
+
+<p>It is possible to have an event that occurs in more than one month, either
+by specifying a range, or as discreet list.  For example:</p>
+
+<blockquote>
+  <p>An event occurring on the last Friday in March, June, September and
+  December:</p>
+
+    <blockquote><pre>Fri-1 Mar,Jun,Sep,Dec Prepare quarterly reports</pre></blockquote>
+
+  <p>An event that occurs in the first day of the month for the first half of
+  the year:</p>
+
+    <blockquote><pre>1 Jan-Jun This is the first half of the year</pre></blockquote>
+
+  <p>An event that occurs on the first Monday in January, February, March and
+  August</p>
+
+  <blockquote><pre>Mon Jan-Mar,Aug The odd event</pre></blockquote>
+</blockquote>
+
+<p>Again, no spaces should be between the months, only commas or hyphens.</p>
+
+<a name="year"></a>
+<h2><font color="#104A91">Year</font></h2>
+
+<p>If a year is specified, then the number of years between the current year
+and the year of the event is displayed in parenthesis.</p>
+
+<p>Example: For the event:</p>
+
+<blockquote><pre>1 Apr 1980 John's birthday</pre></blockquote>
+
+<p>In the year 2009, it would be displayed with a &ldquo;29&rdquo; in
+parenthesis:</p>
+
+<p align="center"><img src="images/main_window.png" width="348" height="198" title="BDay Main Window" alt="BDay Main Window"></p>
+
+<p>If you wanted an event that only occurred in a specific year, put a
+&ldquo;+1&rdquo; after the year (no spaces).  For example:</p>
+
+<blockquote><pre>27 Dec 2009+1 Public holiday for Christmas</pre></blockquote>
+
+<p>If you wanted an event to only occur for two years in a row, you could put a
+&ldquo;<tt>+2</tt>&rdquo;, a &ldquo;<tt>+3</tt>&rdquo; for three years, and so
+on.</p>
+
+<a name="lead-time"></a>
+<h2><font color="#104A91">Lead Time</font></h2>
+
+<p>By default, events are displayed from five days before they occur.  You can
+change this for a specific event by specifying the number of days warning after
+the year.  For example, if you had
+&ldquo;<code>1&nbsp;Apr&nbsp;1980&nbsp;10&nbsp;John's&nbsp;birthday</code>&rdquo;
+then on the 25th of March you would see:</p>
+
+<p align="center"><img src="images/main_window_lead_time.png" width="348" height="198" title="Longer lead times" alt="John's birthday (29) in 7 days (Wed 01 Apr 2009)"></p>
+
+<p>If you want to use a default lead time other than five days, you can change
+it by putting the following in the event file:</p>
+
+<blockquote><pre>lead time <em>n</em></pre></blockquote>
+
+<p>Where &ldquo;<code><em>n</em></code>&rdquo; is the number of days lead time
+you want by default.  All events specified after this line will have the new
+lead time by default.</p>
+
+<a name="event-text"></a>
+<h2><font color="#104A91">Event Text</font></h2>
+
+<p>This is simply the text to be displayed for the event.  It can pretty much
+be anything, although it is probably a good idea to avoid starting the event
+text with a number or it could get misinterpreted as a year or the desired lead
+time.</p>
+
+<p><a href="advanced.html#contents" title="Contents">Contents</a></p>
+
+</body>
+</html>

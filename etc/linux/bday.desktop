@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=BDay
+Comment=The super simple birthday and anniversary reminder program.
+Exec=/usr/bin/bday
+Icon=/usr/share/icons/bday.png
+Type=Application
+Terminal=false
+StartupNotify=false
+Categories=Utility;X-SuSE-DesktopUtility;
