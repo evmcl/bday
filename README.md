@@ -1,6 +1,5 @@
-<img src="http://code.google.com/p/evbday/logo" width="55" height="55" alt="" style="float: left">
-
 # BDay
+<img src="http://code.google.com/p/evbday/logo?cct=1242289052" width="55" height="55" alt="" style="float: left">
 
 *The super simple birthday and anniversary reminder program.*
 
@@ -11,7 +10,7 @@ OK.  It does not hang around in the system tray or as a background
 process taking up your computer's resources.  If there are no events
 to be displayed, then you wont even see BDay run.
 
-<img src="http://evans-software.googlegroups.com/web/bday_main_window.png" width="347" height="197" alt="Sample Main Window">
+<img src="http://evans-software.googlegroups.com/web/bday_main_window.png?gda=ufGa-0YAAABU_LRYGhhiqLfMnL0GpnNmwNNIjxJGfp16is04F2ImklmTaM1hSen7aAzQHuCFayx3riz0RlMs_1ov_iNdB7P8E-Ea7GxYMt0t6nY0uV5FIQ&gsc=Ht32QBYAAADSZnW_8rJ40M8TTTzU4Q3fiZdYpI8bFqLfSPVWzjihew" width="347" height="197" alt="Sample Main Window">
 
 BDay is available for both Windows and Linux.
 
