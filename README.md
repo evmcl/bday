@@ -2,7 +2,7 @@
 
 *The super simple birthday and anniversary reminder program.*
 
-<img src="http://evmcl.github.com/bday/logo.png" width="55" height="55" alt="">
+[Home Page][1] &bull; [Downloads][2] &bull; [GitHub][3]
 
 BDay is a simple program to help you track birthdays and
 anniversaries.  It runs when you start or log in to your computer,
@@ -42,3 +42,4 @@ See COPYING for the full text of the GNU General Public License.
 
  [1]: http://evanmclean.com/software/bday/
  [2]: http://code.google.com/p/evbday/downloads/list
+ [3]: https://github.com/evmcl/bday

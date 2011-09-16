@@ -2,6 +2,10 @@ BDay
 
 The super simple birthday and anniversary reminder program.
 
+  Home Page: http://evanmclean.com/software/bday/
+  Downloads: http://code.google.com/p/evbday/downloads/list
+  GitHub:    https://github.com/evmcl/bday
+
 BDay is a simple program to help you track birthdays and
 anniversaries.  It runs when you start or log in to your computer,
 displays any events that are coming up, and then exits when you click
