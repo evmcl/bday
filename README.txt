@@ -3,7 +3,7 @@ BDay
 The super simple birthday and anniversary reminder program.
 
   Home Page: http://evanmclean.com/software/bday/
-  Downloads: http://code.google.com/p/evbday/downloads/list
+  Downloads: http://evmcl.github.com/bday/
   GitHub:    https://github.com/evmcl/bday
 
 BDay is a simple program to help you track birthdays and

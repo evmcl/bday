@@ -15,13 +15,13 @@ to be displayed, then you wont even see BDay run.
 
 BDay is available for both Windows and Linux.
 
-See the [Home Page][1] for more information, or the [Downloads][2] page for
+See the [Home Page][1] for more information, or the [Releases][2] page for
 source and binaries.
 
 ## INSTALLING
 
 See the file INSTALL for manual installation instructions, or the
-[Downloads][2] page for installer versions.
+[Releases][2] page for installer versions.
 
 ## COPYRIGHT
 
@@ -41,5 +41,5 @@ General Public License for more details.
 See COPYING for the full text of the GNU General Public License.
 
  [1]: http://evanmclean.com/software/bday/
- [2]: http://code.google.com/p/evbday/downloads/list
+ [2]: https://github.com/evmcl/bday/releases
  [3]: https://github.com/evmcl/bday
